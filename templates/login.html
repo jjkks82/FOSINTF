@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSINT — تسجيل دخول</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+        body { 
+            background: #0f0f1a; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        .login-box {
+            background: #1a1a2e;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            width: 360px;
+            border: 1px solid #2a2a4a;
+        }
+        h1 { color: #e0e0ff; text-align: center; margin-bottom: 0.5rem; font-size: 1.8rem; }
+        .subtitle { color: #8888aa; text-align: center; margin-bottom: 2rem; font-size: 0.9rem; }
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border: 1px solid #2a2a4a;
+            border-radius: 10px;
+            background: #0f0f1a;
+            color: #e0e0ff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+        input:focus { border-color: #4a4aff; box-shadow: 0 0 0 3px rgba(74,74,255,0.2); }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4a4aff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover { background: #5a5aff; transform: translateY(-1px); }
+        .error { color: #ff6b6b; text-align: center; margin-top: 1rem; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>🔍 FSINT</h1>
+        <p class="subtitle">دخول للمصرّح لهم فقط</p>
+        <form method="POST">
+            <input type="text" name="username" placeholder="يوزر" required autocomplete="off">
+            <input type="password" name="password" placeholder="باسورد" required autocomplete="off">
+            <button type="submit">دخول</button>
+        </form>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
